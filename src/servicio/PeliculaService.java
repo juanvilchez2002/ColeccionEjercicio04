@@ -51,21 +51,38 @@ public class PeliculaService {
             
             if(op.equals("n")) flag=false;
             consola.nextLine();
+            System.out.println("");
         }while(flag);
+        
         listarPeliculas();
+        listarPeliculaHoraDuracion();
     }
     
     private void listarPeliculas(){
-        for(Pelicula pel:peliculas){
-            System.out.println(pel.toString());
-        }
-        
+        System.out.println("--- Listado de Peliculas ---");
         System.out.println("");
-        System.out.println("Ordenado");
-        peliculas.sort(Pelicula.ordenarPeliculaHoraDesc);
         for(Pelicula pel:peliculas){
-            System.out.println(pel.toString());
-        }
+            System.out.println(pel);
+        }  
+    }
+    
+    private void listarPeliculaHora(){
+        System.out.println("--- Listado de Peliculas: 01 Hora ---");System.out.println("");
+        for(Pelicula pel:peliculas){
+            if(pel.getDuracion()>60){
+                System.out.println(pel);
+            }
+        }  
+    }
+    
+    private void listarPeliculaHoraDuracion(){
+        LocalTime duraHora=LocalTime.of(1,0);
+        System.out.println("--- Listado de Peliculas: 01 Hora ---");System.out.println("");
+        for(Pelicula pel:peliculas){
+            if(pel.getDura().isAfter(duraHora)){
+                System.out.println(pel);
+            }
+        }  
     }
     
 }

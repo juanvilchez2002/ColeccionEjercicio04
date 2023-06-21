@@ -68,17 +68,21 @@ public class Pelicula {
         return "Pelicula{" + "titulo=" + titulo + ", director=" + director + ", duracion=" + duracion + ", dura=" + dura + '}';
     }    
     
-    private static Comparator<Pelicula> ordenarPeliculaDuracion = new Comparator<Pelicula>() {
+    //comparadores para ordenamiento
+    
+    //ordenamiento por duracion minutos
+    private static Comparator<Pelicula> ordenarPeliculaDuracion = new Comparator<>() {
         @Override
         public int compare(Pelicula o1, Pelicula o2) {
             return o1.getDuracion().compareTo(o2.getDuracion());
         }
     };
     
-    public static Comparator<Pelicula> ordenarPeliculaHoraDesc = new Comparator<>() {
+    //ordenamiento por duracion horas
+    public static Comparator<Pelicula> ordenarPeliculaHoraDuracion = new Comparator<>() {
         @Override
         public int compare(Pelicula o1, Pelicula o2) {
-            return o1.getDura().compareTo(o2.getDura());
+            return o2.getDura().compareTo(o1.getDura());
         }
     };
     
